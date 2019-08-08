@@ -19,6 +19,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='seeed-python-dht',
+    version='0.0.1',  # Required
 
     description='Python library for Grove - Temperature&Humidity Sensor Pro',
     long_description=long_description,
