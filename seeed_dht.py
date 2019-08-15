@@ -67,12 +67,15 @@ class DHT(object):
         return self.bus.read_byte_data(self.addr,0)
 
     def _dht10_init(self):
+
         time.sleep(.5)
         self._dht10_reset()
+        # delay is needed after reset
         time.sleep(.3)
 
         self._dht10_set_system_cfg()
         status = self._dht10_read_status()
+        # we must check the calibrate flag, bit[3] : 1 for calibrated ok,0 for Not calibrated.
         while (status & 0x08 != 0x08):
             print("try calibrated again!n\n")
             self._dht10_reset()
@@ -88,6 +91,7 @@ class DHT(object):
             h = 0
             self._dht10_start_mess()
             time.sleep(.075)
+            # we must check the device busy flag, bit[7] : 1 for busy ,0 for idle.
             while((self._dht10_read_status() & 0x80) != 0):
                 time.sleep(.5)
                 print("wait for device not busy")

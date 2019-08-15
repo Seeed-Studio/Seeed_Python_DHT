@@ -5,7 +5,7 @@ This is a powerful sister version of our Grove - Temperature&Humidity Sensor Pro
 This code is for
 - [Grove - Temperature&Humidity Sensor Pro](https://www.seeedstudio.com/Grove-Temperature%26Humidity-Sensor-Pro%EF%BC%88AM2302%EF%BC%89-p-838.html)
 - [Grove - Temperature & Humidity Sensor (DHT11)](https://www.seeedstudio.com/Grove-Temperature-Humidity-Sensor-DHT1-p-745.html)
-
+- Grove - Temp & Humi Sensor v1.0 (DHT10)
 
 # Dependencies
 This driver depends on:
@@ -35,6 +35,7 @@ pip3 install seeed-python-dht
 
 ## Usage Notes
 
+#### for DHT11,DHT22
 First, Check the corresponding gpio number of the board:
 ```
 pi@raspberrypi:~/Seeed_Python_DHT $ grove_gpio
@@ -58,6 +59,16 @@ import seeed_dht
 # for DHT11 the type is '11', for DHT22 the type is '22'
 sensor = seeed_dht.DHT("11", 12)
 ```
+
+#### for DHT10
+DHT10 uses i2c protocol, So there is no need to specify an extra pin.  
+Just add contents below:
+```python
+import seeed_dht
+# for DHT11 the type is '11', for DHT22 the type is '22'
+sensor = seeed_dht.DHT("10")
+```
+
 ## Reading from the Sensor
 To read from the sensor:
 ```
