@@ -49,7 +49,7 @@ setup(
     ],
 
     # What does your project relate to?
-    keywords='seeed grove dht dht11 dht22',
+    keywords='seeed grove dht dht11 dht22 dht10',
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
